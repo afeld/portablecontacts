@@ -1,6 +1,11 @@
 require 'uri'
 require 'json'
-require 'active_support'
+begin
+  require 'active_support' # Rails 3+
+rescue LoadError
+  require 'activesupport' # older versions of Rails
+end
+
 module PortableContacts
   
   # This is the main PortableContacts Client.
